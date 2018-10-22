@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
                             color = imagePixels[row][column];
                             color.green = 0;
                             color.blue = 0;
-                            color = imagePixels[row][column];
+                            imagePixels[row][column] = color;
                     }
             }
             image.fromPixelMatrix(imagePixels);
