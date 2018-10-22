@@ -16,7 +16,6 @@ int main(int argc, char* argv[])
         else
         {
             string filename = argv[1];
-
             Bitmap image;
             image.open(filename);
 
@@ -31,6 +30,20 @@ int main(int argc, char* argv[])
 
                     cout<<argv[1]<<" is "<<imagePixels.size()<<" pixels high and "<<
                                            imagePixels[0].size()<<" pixels wide"<<endl;
+
+            for(int row = 0; row < imagePixels.size(); row++)
+            {
+                    for(int column = 0; column < imagePixels[0].size(); column++)
+                    {
+                            Pixel color;
+                            color = imagePixels[row][column];
+                            color.green = 0;
+                            color.blue = 0;
+                            color = imagePixels[row][column];
+                    }
+            }
+            image.fromPixelMatrix(imagePixels);
+            image.save("redness.bmp");
             }
         }
 
